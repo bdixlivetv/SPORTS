@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Live Sports Video Player with Channel Buttons</title>
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="Stream live sports directly in your browser with buttons to switch between popular Sky Sports and DAZN channels." name="description">
+  <link href="https://cdn.plyr.io/3.7.8/plyr.css" rel="stylesheet">
+  <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+  <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script src="https://cdn.jwplayer.com/libraries/SAHhwvZq.js"></script>
+</head>
+
+<body>
+  <h1 style="text-align: center;">UEFA Champions League</h1>
+  <p style="text-align: center;">Click a button below to start watching a live sports channel.</p>
+
+  <!-- Player above ads -->
+
+  </div>
+
+  <!-- Placeholder for video -->
+  <div id="video-placeholder" style="align-items: center; background-color: black; color: white; display: flex; font-size: 18px; height: 400px; justify-content: center; margin-top: 20px; width: 100%;">
+    <p>Loading live sports...</p>
+  </div>
+
+  <!-- Video player container -->
+  <div style="margin-top: 20px; text-align: center;">
+    <video controls="" id="video-player" style="display: none;" width="100%">
+      <source id="video-source"></source>
+      Your browser does not support the video tag.
+    </video>
+    <div id="jwplayerDiv" style="display: none; height: 400px; width: 100%;"></div>
+  </div>
+
+  <!-- Channel buttons -->
+<!-- Add a style block for play icon positioning -->
+<style>
+  .channel-button {
+    position: relative;
+    display: relative;
+    background-color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+    margin: 6px;
+    padding: 1px 1px;
+  }
+  
+  .channel-button img {
+    height: 50px;
+  }
+
+  .play-icon {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height:20px;
+    opacity: 0.2; /* Slightly transparent */
+  }
+</style>
+
+<!-- Channel Buttons -->
+
+<button onclick="playChannel('http://gcp-dash.ngslbs.com/TVD024/index.mpd')" class="channel-button">
+  <img src="https://i.postimg.cc/dt7MNKfg/Sky-Sports-Cricket.jpg" alt=" Sky Sports Cricket">
+  <img src="https://i.postimg.cc/g2Sm1J0q/play-icon-new.png" alt="Play Icon" class="play-icon">
+</button>
+
+<button onclick="playChannel('http://gcp-dash.ngslbs.com/TVD014/index.mpd')" class="channel-button">
+  <img src="https://i.postimg.cc/65R7sF21/eurosport-2-logo-vector-1.png" alt="EuroSports 2">
+  <img src="https://i.postimg.cc/g2Sm1J0q/play-icon-new.png" alt="Play Icon" class="play-icon">
+</button>
+
+<button onclick="playChannel('http://gcp-dash.ngslbs.com/TVD001/index.mpd')" class="channel-button">
+  <img src="https://i.postimg.cc/J7JQ46SS/1.png" alt="TNT Sports 1">
+  <img src="https://i.postimg.cc/g2Sm1J0q/play-icon-new.png" alt="Play Icon" class="play-icon">
+</button>
+
+<button onclick="playChannel('http://gcp-dash.ngslbs.com/TVD002/index.mpd')" class="channel-button">
+  <img src="https://i.postimg.cc/ZnkFxpvf/2.png" alt="TNT Sports 2">
+  <img src="https://i.postimg.cc/g2Sm1J0q/play-icon-new.png" alt="Play Icon" class="play-icon">
+</button>
+
+<button onclick="playChannel('http://gcp-dash.ngslbs.com/TVD003/index.mpd')" class="channel-button">
+  <img src="https://i.postimg.cc/VLWBXSfR/3.png" alt="TNT Sports 3">
+  <img src="https://i.postimg.cc/g2Sm1J0q/play-icon-new.png" alt="Play Icon" class="play-icon">
+</button>
+
+<button onclick="playChannel('http://gcp-dash.ngslbs.com/TVD004/index.mpd')" class="channel-button">
+  <img src="https://i.postimg.cc/L5zkC5zm/4.png" alt="TNT Sports 4">
+  <img src="https://i.postimg.cc/g2Sm1J0q/play-icon-new.png" alt="Play Icon" class="play-icon">
+</button>
+
+
+<button onclick="playChannel('http://gcp-dash.ngslbs.com/TVD005/index.mpd')" class="channel-button">
+  <img src="https://i.postimg.cc/X7bkZKbq/5.png" alt="TNT Sports 5">
+  <img src="https://i.postimg.cc/g2Sm1J0q/play-icon-new.png" alt="Play Icon" class="play-icon">
+</button>
+
+
+
+
+
+
+<button onclick="playChannel('http://gcp-dash.ngslbs.com/TVD232/index.mpd')" class="channel-button">
+  <img src="https://i.postimg.cc/rD8Sk3KP/logo-dazn.png" alt="DAZN 1">
+  <img src="https://i.postimg.cc/g2Sm1J0q/play-icon-new.png" alt="Play Icon" class="play-icon">
+</button>
+
+<button onclick="playChannel('http://gcp-dash.ngslbs.com/TVD212/index.mpd')" class="channel-button">
+  <img src="https://i.postimg.cc/0jpDz9DB/DAZN-2-svg-1.png" alt="DAZN 2">
+  <img src="https://i.postimg.cc/g2Sm1J0q/play-icon-new.png" alt="Play Icon" class="play-icon">
+</button>
+
+<button onclick="playChannel('http://gcp-dash.ngslbs.com/TVD017/index.mpd')" class="channel-button">
+  <img src="https://i.postimg.cc/PrSN2LXM/Screenshot-58.png" alt="Sky Sports Football">
+  <img src="https://i.postimg.cc/g2Sm1J0q/play-icon-new.png" alt="Play Icon" class="play-icon">
+</button>
+
+<button onclick="playChannel('http://gcp-dash.ngslbs.com/TVD229/index.mpd')" class="channel-button">
+  <img src="https://i.postimg.cc/DzXZvBqC/images-8.png" alt="Sky Premier Football">
+  <img src="https://i.postimg.cc/g2Sm1J0q/play-icon-new.png" alt="Play Icon" class="play-icon">
+</button>
+
+
+</div>
+  
+  
+    <!-- Button below ads -->
+
+  </div>
+
+  <!-- JavaScript for video player functionality -->
+  <script>
+    const video = document.getElementById('video-player');
+    const videoPlaceholder = document.getElementById('video-placeholder');
+    const player = new Plyr(video, { captions: { active: true, update: true, language: 'en' } });
+    let dashPlayer;
+
+    // CORS proxy for resolving playback issues
+    const corsProxy = 'https://cors-proxy.cooks.fyi/';
+
+    // Function to play a specific channel
+    function playChannel(url) {
+      const videoUrl = corsProxy + url;
+
+      video.style.display = 'block';
+      videoPlaceholder.style.display = 'none';
+
+      if (dashPlayer) dashPlayer.reset();
+
+      dashPlayer = dashjs.MediaPlayer().create();
+      dashPlayer.initialize(video, videoUrl, true);
+    }
+
+    // Auto-play default channel on page load
+    window.onload = function () {
+      const defaultChannel = 'http://gcp-dash.ngslbs.com/TVD212/index.mpd';
+      playChannel(defaultChannel);
+    };
+  </script>
+</body>
+
+</html>
+  
